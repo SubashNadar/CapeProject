@@ -1,0 +1,81 @@
+.main-card {
+    margin-top: 20px;
+    background-color: #8eb895;
+    border-radius: 15px;
+    padding-bottom: 8px; 
+    border-style: double;
+    border-width: 10px;
+    border-color: rgb(243, 232, 232);
+    max-width: 500px;
+    margin-left: 250px;
+  
+    
+    
+}
+
+
+
+.kanban-title {
+    font-weight: semi-bold;
+    color: rgb(44, 68, 34);
+    font-family: 'Open Sans', sans-serif;
+    margin-left: 170px;
+}
+.toolbar{
+    background-color: rgb(154, 204, 154);
+  }
+  .page-container{
+      margin-top: 50px;
+  }
+  button{
+    background-color: rgb(154, 204, 154); 
+  }
+  .with-icon {
+    display: flex;
+    align-items: center;
+    margin-left: 800px;
+  }
+  body{
+    overflow: auto;
+  }
+  .logout{
+    margin-left: 1%;
+  }
+  .footer{
+    font-size: small;
+    margin-left: 345px;
+    align-items: center;
+    color: black;
+  }
+  .footerh{
+    position: fixed;
+    z-index:1000 ;
+    height: 40px;
+    bottom: 0;
+    width: 100%;
+    margin-top: 45px;
+    background-color:rgb(154, 204, 154);
+  }
+  .username{
+    display: flex;
+    align-items: center;
+    margin-left: 680px;
+    font-size: medium;
+  }
+
+  .boardimage{
+    position: relative;
+    margin-left: 800px;
+    margin-top: -50px;
+    position:fixed;
+  }
+  .header{
+   
+    position: fixed;
+    z-index:1000 ;
+    top: 0;
+    width: 100%;
+    color: white;
+    text-align: center;
+    background-color:rgb(154, 204, 154);
+  }

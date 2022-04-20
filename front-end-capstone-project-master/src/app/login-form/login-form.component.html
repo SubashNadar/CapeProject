@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Fuzzy+Bubbles:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <title>Login</title>
+</head>
+
+<body>
+    <div>
+        <mat-toolbar class="toolbar">
+            <img  src="./assets/logo1.png" alt="logo" style="width: 50px;height: 50px;padding-right: 10px;">
+            <span  style="color: black;font-family: 'Lobster', cursive;">Kanban Board</span>
+        </mat-toolbar>
+        <div>
+            <div style="position: relative;margin-top: -5px;margin-left: 100px;">
+                <img src="./assets/welcome6-removebg-preview.png" alt="Avatar" class="background" style="width: 55%;">
+                <div class="formChn" style="margin-left: -5%;">
+                    <h1><b>Welcome To Kanban Board</b></h1><br>
+                    <ul>
+                        <li>Design your day with kanban board</li><br>
+                        <li>Keep a track of your tasks</li><br>
+                        <li>Increase efficiency and productivity of your project</li><br>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div>
+            <mat-card class="example-card">
+                <form id="login-form" class="example-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                    <div class="imgcontainer">
+                        <img src="./assets/avtar.jpeg" alt="Avatar" class="avatar">
+                    </div>
+                    <div>
+                        <h2><b>Signin</b></h2>
+                    </div>
+                    <div class="container">
+                        <div class="form-group">
+                            <label class="tcl"><b>Email</b></label><br>
+                            <input type="text" placeholder="Enter Email ID" name="email" formControlName="email"
+                            id="email" class="form-control" required>
+                            <div *ngIf="!email?.valid && (email?.dirty ||email?.touched)">
+                                <div style="color: red;" [hidden]="!email.errors?.required">
+                                    email is required
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="form-group">
+                            <label class="tcl"><b>Password</b></label><br>
+                            <input type="password" placeholder="Enter Password" name="password"
+                            formControlName="password" id="password" class="form-control">
+                                <div *ngIf="!password?.valid && (password?.dirty ||password?.touched)">
+                                    <div style="color: red;" [hidden]="!password.errors?.required">
+                                        *password is required
+                                    </div>
+                                    <div style="color: red;" [hidden]="!password.errors?.required.minLength">
+                                        *Password length minimum 8 characters
+                                    </div>
+                                </div>
+                        </div>
+                        <br>
+                        <button type="submit" [disabled]="!loginForm.valid">Sign in</button>
+                        <button type="button" class="cancelbtn" class="container"
+                            style="background-color:#c2400d;margin-left: 5%;text-align: center; padding: 10px 10px;"
+                            (click)="register()">Sign up</button>
+                    </div>
+                </form>
+            </mat-card>
+        </div>
+    </div>
+</body>
+
+</html>

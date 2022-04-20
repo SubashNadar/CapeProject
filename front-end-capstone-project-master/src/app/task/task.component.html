@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Corinthia:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <title>Task</title>
+  </head>
+  <body>
+    <mat-toolbar class="header">
+    
+      <img  src="./assets/logo1.png" alt="logo" style="width: 50px;height: 50px;padding-right: 10px;">
+      <a href="/kanban" style="text-decoration: none;"><span  style="color: black;font-family: 'Lobster', cursive;" >Kanban Board &nbsp;&nbsp;&nbsp;-</span></a> <span class="header-title"><h1 style="font-family: 'Lobster', cursive;">{{kanban?.kanbanTitle}}</h1></span>
+  <div class="username" style="color: black;"><mat-icon>account_circle</mat-icon>{{email}} | </div>
+  <div class="with-icon">
+    <mat-icon class="logout" style="color:rgb(14, 13, 13) ;">logout</mat-icon><a style="text-decoration:none;color: rgb(14, 13, 13);" (click)="logoutIn()" >Logout</a>
+  </div>
+  </mat-toolbar>
+
+    <div class="page-container">
+      <div class="page-title">
+    </div>
+    <div  class="example-button-row">
+      <button mat-raised-button color="accent" class="btn" (click)="openDialogForNewTask()">+ Create Task</button>
+    </div>
+    <div class="kanban-board">
+      <div class="list-container">
+        <h2 class="todo">To Do</h2>
+        <div
+        cdkDropList
+        id="todo"
+        [cdkDropListData]="todos"
+        [cdkDropListConnectedTo]="['inpro', 'done']"
+        class="board-list"
+        (cdkDropListDropped)="drop($event)">
+        <div class="sticky-note-todo"  *ngFor="let task of todos" cdkDrag
+          [style.background-color]="task.color"
+          (dblclick)="openTaskDialog($event)"
+          id="{{task.taskId}}"> 
+          <b>{{task.taskName}}</b><br><br>
+          {{task.assignTo}}
+          <button mat-raised-button color="accent" class="btn1" (click)="update(task)">Update</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="list-container">
+      <h2 class="inpro">In Progress</h2>
+      <div
+      cdkDropList
+      id="inpro"
+      [cdkDropListData]="inprogress"
+      [cdkDropListConnectedTo]="['todo', 'done']"
+      class="board-list"
+      (cdkDropListDropped)="drop($event)">
+        <div class="sticky-note-inprogress" *ngFor="let task of inprogress" cdkDrag
+        [style.background-color]="task.color"
+        (dblclick)="openTaskDialog($event)"
+          id="{{task.taskId}}">
+          <b>{{task.taskName}}</b><br>
+          {{task.assignTo}}
+          <button mat-raised-button color="accent" class="btn1" (click)="update(task)">Update</button>
+        </div>
+      </div>
+  </div>
+
+    <div class="list-container">
+        <h2 class="done">Done</h2>
+        <div
+        cdkDropList
+        id="done"
+        [cdkDropListData]="dones"
+        [cdkDropListConnectedTo]="['todo', 'inpro']"
+        class="board-list"
+        (cdkDropListDropped)="drop($event)">
+          <div class="sticky-note-done" *ngFor="let task of dones" cdkDrag
+          [style.background-color]="task.color"
+          (dblclick)="openTaskDialog($event)"
+          id="{{task.taskId}}">
+          <b>{{task.taskName}}</b><br><br>
+            {{task.assignTo}}  
+            <button mat-raised-button color="accent" class="btn1" (click)="update(task)">Update</button>
+          </div>
+        </div>
+    </div>
+  </div>
+  <mat-toolbar class="footerh">
+    <div class="footer">
+      COPYRIGHT © Kanban Board 2021. ALL RIGHTS RESERVED. &nbsp;&nbsp;&nbsp;&nbsp; <a href="/about" style="color:rgb(14, 13, 13);text-decoration: none;">About Us</a>&nbsp;&nbsp;<a href="/privacy" style="color:rgb(8, 4, 4);text-decoration: none;">Privacy Policy</a>
+    </div>
+  </mat-toolbar>
+</div>
+
+</body>
+</html>
+

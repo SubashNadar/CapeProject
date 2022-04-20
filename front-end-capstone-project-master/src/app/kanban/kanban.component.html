@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+  <mat-toolbar class="header">
+    
+      <img  src="./assets/logo1.png" alt="logo" style="width: 50px;height: 50px;padding-right: 10px;">
+      <span  style="color: black;font-family: 'Lobster', cursive;">Kanban Board</span>
+      <div class="username" style="color: black;"><mat-icon>account_circle</mat-icon>{{email}} |</div>
+      <mat-icon class="logout" style="color:rgb(14, 13, 13) ;">logout</mat-icon><a style="text-decoration:none;color: rgb(14, 13, 13);" (click)="logoutIn()" >Logout</a>
+  </mat-toolbar>
+  
+    <div class="page-container">
+        <div class="page-title">
+        </div>
+        <div>
+          <button style="margin-left: 30px;margin-top: 40px;position: fixed;" mat-raised-button  (click)="openDialogForNewKanban()">+ Create Kanban</button>
+        </div>
+        <br>
+        <p style="margin-left: 250px;color: black;margin-top: 100px;"><b>Kanban Boards</b></p>
+        <div class="boardimage"><img src="./assets/point to board_prev_ui.png" alt="prev"> </div>
+
+        <div class="main-card">
+          <mat-nav-list>
+            <a mat-list-item *ngFor="let kanban of kanbanList" routerLink="/kanbans/{{kanban.kanbanId}}"> 
+              <p class="kanban-title" style="font-size: large;"><b>{{kanban.kanbanTitle}}</b></p>
+            </a>
+          </mat-nav-list>
+        </div>
+        <br>
+        <mat-toolbar class="footerh">
+          <div class="footer">
+            COPYRIGHT © Kanban Board 2021. ALL RIGHTS RESERVED. &nbsp;&nbsp;&nbsp;&nbsp; <a routerLink="/about" style="color:rgb(14, 13, 13);text-decoration: none;">About Us</a>&nbsp;&nbsp;<a routerLink="/privacy" style="color:rgb(8, 4, 4);text-decoration: none;">Privacy Policy</a>
+          </div>
+        </mat-toolbar>
+      </div>
+      
+</body>
+</html>
